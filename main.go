@@ -2,7 +2,8 @@ package main
 
 import (
 	"runtime"
-	"github.com/go-gl/glfw/v3.3/glfw"	
+
+	"github.com/go-gl/glfw/v3.3/glfw"
 )
 
 func Init() {
@@ -17,7 +18,12 @@ func main() {
 
 	defer glfw.Terminate()
 
-	window, err := glfw.CreateWindow(800, 600, "Mincraft Golang edition", nil, nil)
+	window, err := glfw.CreateWindow(800, 600, "Minecraft Golang Edition", nil, nil)
+
+	if err != nil {
+		glfw.Terminate()
+		panic(err)
+	}
 
 	window.MakeContextCurrent()
 
